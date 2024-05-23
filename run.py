@@ -12,8 +12,16 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_letters and grammar')
 
-categories = SHEET.worksheet('categories')
+def get_username():
+    """
+    User may enter their username. 
+    the function will return the entered username.
+    """
+    username = input("Please enter your username: ")
+    return username
 
-data= categories.get_all_values()
+user_name = get_username()
+print(f"Hello, {user_name}! Welcome to this challenge.")
+print("You are about to start a game of 3 steps.")
+print("Soon you will start the Hangman game to guess the right word.")
 
-print(data)
