@@ -1,3 +1,5 @@
+import sys
+import random
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -34,13 +36,36 @@ def choose_to_continue():
         choice = input("Would you like to enter your username? (y/n): ").lower()
         if choice == 'y':
             print(f"Let's start, {user_name}!")
-            return get_word
+            return true
         elif choice == 'n':
             print("No problem, you can come back anytime.")
-            return None
+            sys.exit()
         else:
             print("Invalid choice. Please enter 'y' for yes or 'n' for no.")
 
 choose_to_continue = choose_to_continue()
 print(choose_to_continue)
 
+def choose_category():
+    print("Choose a category:")
+    print("1. Politics")
+    print("2. Society")
+    print("3. Hobbies")
+    
+    while True:
+        choice = input("Enter the number of your choice (1/2/3): ")
+        if choice in ['1', '2', '3']:
+            if choice == '1':
+                return "Politics"
+            elif choice == '2':
+                return "Society"
+            elif choice == '3':
+                return "Hobbies"
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
+
+selected_category = choose_category()
+print("Selected category:", selected_category)
+
+
+    
