@@ -22,12 +22,7 @@ def get_username():
     username = input("Please enter your username: ")
     return username
 
-user_name = get_username()
-print(f"Hello, {user_name}! Welcome to this challenge.")
-print("You are about to start a game of 3 steps.")
-print("Soon you will start the Hangman game to guess the right word.")
-
-def choose_to_continue():
+def choose_to_continue(user_name):
     """
     Create loop to ask and return user choice,
     if he wants or not to start the game.
@@ -36,17 +31,17 @@ def choose_to_continue():
         choice = input("Would you like to enter your username? (y/n): ").lower()
         if choice == 'y':
             print(f"Let's start, {user_name}!")
-            return true
+            return True
         elif choice == 'n':
             print("No problem, you can come back anytime.")
             sys.exit()
         else:
             print("Invalid choice. Please enter 'y' for yes or 'n' for no.")
 
-choose_to_continue = choose_to_continue()
-print(choose_to_continue)
-
 def choose_category():
+    """
+    User choose an option to start playing
+    """
     print("Choose a category:")
     print("1. Politics")
     print("2. Society")
@@ -64,8 +59,17 @@ def choose_category():
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
 
-selected_category = choose_category()
-print("Selected category:", selected_category)
+def main():
+    """
+    Run all program functions
+    """
+    user_name = get_username()
+    print(f"Hello, {user_name}! Welcome to this challenge.")
+    print("You are about to start a game of 3 steps.")
+    print("Soon you will start the Hangman game to guess the right word.")
 
+    if choose_to_continue(user_name):
+        selected_category = choose_category()
+        print("Selected category:", selected_category)
 
-    
+main()
