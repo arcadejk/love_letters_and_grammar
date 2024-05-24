@@ -63,6 +63,140 @@ def choose_category():
             return category_name, random.choice(words_list)
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
+
+def play(word):
+    """
+    Contains the setting to start the Hangman game.
+    """
+    print("You will have 6 tries before loose.")
+    print("When you loose the first step, you won't be allow to continue the game.")
+    print("You should then start over, from the beginning ! :-D")
+
+    word_construction = "_" * len(word)
+    guessed = False
+    guessed_letters = []
+    guessed_words = []
+    tries = 6
+    print("Let's play Hangman!")
+    print(display_hangman(tries))
+    print(word_construction)
+    print("\n")
+    while not guessed and tries > 0:
+        guess = input("Please guess a letter or word: ").upper()
+        if len(guess) == 1 and guess.isalpha():
+            if guess in guessed_letters:
+                print("You already guessed the letter", guess)
+            elif guess not in word:
+                print(guess, "is not in the word.")
+                tries -= 1
+                guessed_letters.append(guess)
+            else:
+                print("Good job,", guess, "is in the word!")
+                guessed_letters.append(guess)
+                word_as_list = list(word_construction)
+                indices = [i for i, letter in enumerate(word) if letter == guess]
+                for index in indices:
+                    word_as_list[index] = guess
+                word_construction = "".join(word_as_list)
+                if "_" not in word_construction:
+                    guessed = True
+        elif len(guess) == len(word) and guess.isalpha():
+            if guess in guessed_words:
+                print("You already guessed the word", guess)
+            elif guess != word:
+                print(guess, "is not the word.")
+                tries -= 1
+                guessed_words.append(guess)
+            else:
+                guessed = True
+                word_construction = word
+        else:
+            print("Not a valid guess.")
+        print(display_hangman(tries))
+        print(word_construction)
+        print("\n")
+    if guessed:
+        print("Congratulations, you guessed the word! You win!")
+    else:
+        print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
+
+
+def display_hangman(tries):
+    """
+    Contains parts of the hangman and the stages.
+    """
+    stages = [  # final state: head, torso, both arms, and both legs
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / \\
+                   -
+                """,
+                # head, torso, both arms, and one leg
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |     / 
+                   -
+                """,
+                # head, torso, and both arms
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|/
+                   |      |
+                   |      
+                   -
+                """,
+                # head, torso, and one arm
+                """
+                   --------
+                   |      |
+                   |      O
+                   |     \\|
+                   |      |
+                   |     
+                   -
+                """,
+                # head and torso
+                """
+                   --------
+                   |      |
+                   |      O
+                   |      |
+                   |      |
+                   |     
+                   -
+                """,
+                # head
+                """
+                   --------
+                   |      |
+                   |      O
+                   |    
+                   |      
+                   |     
+                   -
+                """,
+                # initial empty state
+                """
+                   --------
+                   |      |
+                   |      
+                   |    
+                   |      
+                   |     
+                   -
+                """
+    ]
+    return stages[tries]
     
 def main():
     """
@@ -76,7 +210,13 @@ def main():
     if choose_to_continue(user_name):
         selected_category, random_word = choose_category()
         print("Selected category:", selected_category)
-        print(f"The word to guess is: {random_word.upper()}")
+
+    word = random_word.upper()
+    play(word)
+    while input("Play Again? (Y/N) ").upper() == "Y":
+        word = choose_category()
+        play(word)
 
 print("Welcome to the letters and Grammar game!")
-main()
+if __name__ == "__main__":
+    main()
