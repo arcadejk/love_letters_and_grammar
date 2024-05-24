@@ -46,28 +46,24 @@ def choose_category():
     print("1. Politics")
     print("2. Society")
     print("3. Hobbies")
-    
+    categories = SHEET.worksheet("categories")
     while True:
         choice = input("Enter the number of your choice (1/2/3): ")
         if choice in ['1', '2', '3']:
             if choice == '1':
-                return "Politics"
+                words_list = categories.col_values(2)[1:]
+                category_name = "Politics"
             elif choice == '2':
-                return "Society"
+                words_list = categories.col_values(3)[1:]
+                category_name = "Society"
             elif choice == '3':
-                return "Hobbies"
+                words_list = categories.col_values(4)[1:]
+                category_name = "Hobbies"
+            
+            return category_name, random.choice(words_list)
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
-
-def get_random_word(categories):
-    """
-    Access the worksheet based on the selected category.
-    Get all values in the worksheet and choose a random cell.
-    """
-    categories = SHEET.worksheet("categories")
-    words_list = categories.col_values(2)
-    return random.choice(words_list)
-
+    
 def main():
     """
     Run all program functions
@@ -78,10 +74,9 @@ def main():
     print("Soon you will start the Hangman game to guess the right word.")
 
     if choose_to_continue(user_name):
-        selected_category = choose_category()
+        selected_category, random_word = choose_category()
         print("Selected category:", selected_category)
-        random_word = get_random_word(selected_category)
-        print(f"The word to guess is: {random_word}")
+        print(f"The word to guess is: {random_word.upper()}")
 
 print("Welcome to the letters and Grammar game!")
 main()
