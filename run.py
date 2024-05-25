@@ -247,7 +247,14 @@ def convert_to_plural(chosen_sentence):
     return user_plural
 
     print("Your response has been recorded. Thank you!")
-        
+
+def update_worksheet(user_name, selected_category, user_plural):
+    """
+    This function will update each column of the worksheet.
+    """
+    answers_worksheet = SHEET.worksheet('answers')
+    answers_worksheet.append_row([user_name, selected_category, user_plural]) 
+
 def main():
     """
     Run all program functions
@@ -264,14 +271,16 @@ def main():
     word = random_word.upper()
     play(word)
     while input("Play Again? (Y/N) Press 'N' to continue with the next challenge.").upper() == "Y":
-        word = choose_category()
-        play(word)
+        selected_category, random_word = choose_category()
+        play(random_word.upper())
     
     random_sentence = scrambled_sentence()
     print(random_sentence)
 
     sentence_plural = convert_to_plural(random_sentence)
     print(sentence_plural)
+
+    update_worksheet(user_name, selected_category, sentence_plural) 
 
 print("Welcome to the letters and Grammar game!")
 if __name__ == "__main__":
