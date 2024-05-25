@@ -51,13 +51,13 @@ def choose_category():
         choice = input("Enter the number of your choice (1/2/3): ")
         if choice in ['1', '2', '3']:
             if choice == '1':
-                words_list = categories.col_values(2)[1:]
+                words_list = categories.col_values(1)[1:]
                 category_name = "Politics"
             elif choice == '2':
-                words_list = categories.col_values(3)[1:]
+                words_list = categories.col_values(2)[1:]
                 category_name = "Society"
             elif choice == '3':
-                words_list = categories.col_values(4)[1:]
+                words_list = categories.col_values(3)[1:]
                 category_name = "Hobbies"
             
             return category_name, random.choice(words_list)
@@ -197,7 +197,43 @@ def display_hangman(tries):
                 """
     ]
     return stages[tries]
-    
+
+def scrambled_sentence():
+    """
+    This function allows the user to select a category, 
+    retrieves a random sentence from the selected category,
+    scrambles the words in that sentence, and then asks the user to unscramble it.
+    """
+    sentences = SHEET.worksheet("sentences")
+    while True:
+        print("Do you want to change the category?")
+        choice = input("Choose one more time - 1: Politics, 2: Society, 3: Hobbies: ")
+        if choice in ['1', '2', '3']:
+            if choice == '1':
+                words_list = sentences.col_values(1)[1:]
+            elif choice == '2':
+                words_list = sentences.col_values(2)[1:]
+            elif choice == '3':
+                words_list = sentences.col_values(3)[1:]
+            
+            chosen_sentence = random.choice(words_list)
+            sentence_elements = chosen_sentence.split()
+            random.shuffle(sentence_elements)
+            jumbled_sentence = " ".join(sentence_elements)
+            
+            print("Unscramble this sentence: " + jumbled_sentence)
+            
+            while True:
+                guess = input("Guess: ")
+                if guess.lower().strip() != chosen_sentence.lower():
+                    print("Incorrect, try again!")
+                else:
+                    print("Congratulations!")
+                    break
+            break
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
+
 def main():
     """
     Run all program functions
@@ -211,11 +247,14 @@ def main():
         selected_category, random_word = choose_category()
         print("Selected category:", selected_category)
 
-    word = random_word.upper()
-    play(word)
-    while input("Play Again? (Y/N) ").upper() == "Y":
-        word = choose_category()
-        play(word)
+    #word = random_word.upper()
+    #play(word)
+    #while input("Play Again? (Y/N) ").upper() == "Y":
+        #word = choose_category()
+        #play(word)
+    
+    random_sentence = scrambled_sentence()
+    print("Unscramble the following sentence: ", random_sentence)
 
 print("Welcome to the letters and Grammar game!")
 if __name__ == "__main__":
