@@ -232,6 +232,10 @@ By leveraging these technologies, we can develop a robust and scalable solution 
 - **Code Review:** Conduct regular code reviews to ensure adherence to coding standards, best practices, and project requirements.
 - **Linting:** Tool like Code Institute Python Linter was used to analyze the Python code the syntax errors, stylistic inconsistencies, and potential bugs.
 - **Static Analysis:** Code Institute Python Linter was also used for static code analysis to identify potential issues such as code smells, complexity, and security vulnerabilities.
+  
+![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/66681f28-376a-4d3b-9988-dad74ffc5252)
+
+
 
 #### 8.2 Test Cases:
 - **User Story 1: New User enter username:**
