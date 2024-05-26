@@ -28,7 +28,7 @@ def choose_to_continue(user_name):
     if he wants or not to start the game.
     """
     while True:
-        choice = input("Would you like to enter your username? (y/n): ").lower()
+        choice = input("Would you like your username to be considered? (y/n): ").lower()
         if choice == 'y':
             print(f"Let's start, {user_name}!")
             return True
