@@ -219,6 +219,7 @@ To develop the "Love Letters and Grammar" project, we'll utilize a combination o
 
 9. **Google Workspace :**
    - Provides collaboration tools such as Google Drive, Google slide and Google Slides for project management, documentation, and communication.
+     Clich here to access the worksheet used in this projet : https://docs.google.com/spreadsheets/d/19b8EifYsD-C2FYrPRFOeawPCpzky55f_JvzDpK6wu88/edit?usp=sharing
 
 10. **Google Drive API :**
     - Allows for integration with Google Drive to store additional resources and user-generated content.
@@ -259,16 +260,14 @@ By leveraging these technologies, we can develop a robust and scalable solution 
     ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/427f6567-1945-4e52-a264-15512764a5a0)
 
     ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/26530bbd-b97b-44c3-ac41-6bd4f9e7174e)
+    
 
 #### 8.3 Fixed Bugs:
 - **Bug ID: #001**
   - Description: Hangman game crashes when special characters are entered as guesses.
   - Fix: Implemented input validation to prevent users from entering non-alphabetic characters.
 
-- **Bug ID: #002**
-  - Description: Profile picture upload fails intermittently.
-  - Fix: Improved error handling and retry mechanism for profile picture uploads.
-
+    
 #### 8.4 Supported Screens and Browsers:
 - **Supported Screens:**
   - Desktop: Ensure compatibility with common desktop resolutions (e.g., 1920x1080, 1366x768).
@@ -367,6 +366,8 @@ The development of the "Love Letters and Grammar" project was made possible thro
 
 - **Code Institute's Loves sandwiches project**
   - Project by Code Institute
-  - ChatGPT used to write descriptions
+
+- **ChatGPT**
+   - used to write the descriptions
 
 These resources played a significant role in guiding and supporting the development process of the "Love Letters and Grammar" project, enriching its functionality and enhancing the overall user experience.
