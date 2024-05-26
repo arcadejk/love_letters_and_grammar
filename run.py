@@ -19,7 +19,7 @@ def get_username():
     User may enter their username. 
     the function will return the entered username.
     """
-    username = input("Please enter your username: ")
+    username = input("Please enter your username: \n")
     return username
 
 def choose_to_continue(user_name):
@@ -48,7 +48,7 @@ def choose_category():
     print("3. Hobbies")
     categories = SHEET.worksheet("categories")
     while True:
-        choice = input("Enter the number of your choice (1/2/3): ")
+        choice = input("Enter the number of your choice (1/2/3): \n")
         if choice in ['1', '2', '3']:
             if choice == '1':
                 words_list = categories.col_values(1)[1:]
@@ -82,7 +82,7 @@ def play(word):
     print(word_construction)
     print("\n")
     while not guessed and tries > 0:
-        guess = input("Please guess a letter or word: ").upper()
+        guess = input("Please guess a letter or word: \n").upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
                 print("You already guessed the letter", guess)
@@ -207,7 +207,7 @@ def scrambled_sentence():
     sentences = SHEET.worksheet("sentences")
     while True:
         print("Do you want to change the category?")
-        choice = input("Choose one more time - 1: Politics, 2: Society, 3: Hobbies: ")
+        choice = input("Choose one more time - 1: Politics, 2: Society, 3: Hobbies: \n")
         if choice in ['1', '2', '3']:
             if choice == '1':
                 words_list = sentences.col_values(1)[1:]
@@ -243,7 +243,7 @@ def convert_to_plural(chosen_sentence):
     """
     print("For the last step of this game, you will...")
     print(f"Convert this sentence to plural: {chosen_sentence}")
-    user_plural = input("Enter the plural form of the sentence: ")
+    user_plural = input("Enter the plural form of the sentence: \n")
     return user_plural
 
     print("Your response has been recorded. Thank you!")
