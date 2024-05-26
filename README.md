@@ -27,8 +27,6 @@ The purpose of the "Love Letters and Grammar" project is to create an interactiv
 
 Overall, the purpose of the "Love Letters and Grammar" project is to create a multifaceted gaming platform that entertains, educates, and engages users while fostering a love for language and linguistic exploration. Through a combination of traditional word games, innovative challenges, and interactive features, the project seeks to make language learning a delightful and rewarding experience for players of all backgrounds.
 
-Certainly! User stories help us understand the needs and expectations of different types of users interacting with the project. Here are some user stories for the "Love Letters and Grammar" project:
-
 ### 2. User Stories:
 
  **2.1. As a new user,** I want to easily understand the purpose of the game and how to play it, so I can start playing without confusion.
@@ -53,8 +51,6 @@ Certainly! User stories help us understand the needs and expectations of differe
 
 These user stories represent a diverse range of potential users and their motivations for interacting with the "Love Letters and Grammar" project. By addressing these user needs and expectations, the project can strive to deliver a rewarding and inclusive experience for all players.
 
-Certainly! Here are some features that could be included in the "Love Letters and Grammar" project:
-
 ### 3. Features:
 
  **3.1. Hangman Game:**
@@ -74,10 +70,6 @@ Certainly! Here are some features that could be included in the "Love Letters an
  **3.4. User Authentication and Profiles:**
    - Allow users to create accounts or profiles to track their progress and scores.
    - Provide options for users to save their game settings and preferences.
-
- **3.5. Leaderboard:**
-   - Display a leaderboard showcasing the top scores of players.
-   - Allow users to compare their scores with others and strive for high rankings.
 
  **3.6. Category Selection:**
    - Offer a variety of categories such as politics, society, hobbies, etc., for gameplay diversity.
@@ -108,8 +100,6 @@ Certainly! Here are some features that could be included in the "Love Letters an
     - Provide explanations of game rules, scoring mechanisms, and any special features.
 
 These features aim to make the "Love Letters and Grammar" project engaging, educational, and user-friendly. By incorporating a variety of gameplay elements and interactive components, the project can cater to different user preferences and enhance the overall gaming experience.
-
-Looking ahead, here are some potential future features that could be implemented in the "Love Letters and Grammar" project to enhance its functionality and user experience:
 
 ### 4. Future Features:
 
@@ -159,60 +149,42 @@ Looking ahead, here are some potential future features that could be implemented
 
 These future features aim to expand the scope and capabilities of the "Love Letters and Grammar" project, offering users a more immersive, customizable, and enriching gaming experience. By continuously evolving and innovating, the project can attract new users, retain existing players, and remain relevant in the dynamic landscape of language learning and gaming.
 
-Wireframes serve as visual guides for the layout and structure of a software application. Here's a basic wireframe for the "Love Letters and Grammar" project:
 
 ### 5. Wireframe:
 
-#### Home Screen:
-- **Header:** Contains the project title/logo and navigation links.
-- **Main Content Area:**
-  - Welcome message with brief project description.
-  - Buttons or links to start playing the games.
-- **Footer:** Includes links to social media, contact information, and privacy policy.
+The following plan serve as visual guides for the layout and structure of a software application. Here are some basic wireframe for the "Love Letters and Grammar" project:
 
-#### Game Selection Screen:
-- **Header:** Project title/logo and navigation links.
-- **Main Content Area:**
-  - Options to choose between different game modes (Hangman, Sentence Unscrambling, Sentence Pluralization).
-  - Category selection dropdown or buttons for game customization.
-- **Footer:** Links to return to the home screen, view settings, and access help.
+![Hangman Project + Jumbled Word + sentences creation pedagogical activity](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/82321b46-5967-455d-bbb8-3b8020a56949)
+
+![Hangman Project + Jumbled Word + sentences creation pedagogical activity (1)](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/35a9a190-3d7c-403f-bb65-127c86c28a3c)
+
+![love_letters and grammar](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/97336cf7-3973-4884-b566-81c898a1a7ff)
+
 
 #### Hangman Game Screen:
-- **Header:** Project title/logo and navigation links.
 - **Main Content Area:**
   - Display of the Hangman game interface, including the gallows, hidden word, guessed letters, and hangman figure.
   - Input field for users to guess letters or words.
   - Scoreboard showing the player's current score and number of attempts remaining.
-- **Footer:** Options to pause the game, access settings, or return to the game selection screen.
 
 #### Sentence Unscrambling Screen:
-- **Header:** Project title/logo and navigation links.
 - **Main Content Area:**
   - Scrambled sentence displayed for the user to unscramble.
   - Input field for users to enter their guess.
   - Option to request a hint or skip to the next sentence.
-- **Footer:** Navigation links, game settings, and help options.
 
 #### Sentence Pluralization Challenge Screen:
-- **Header:** Project title/logo and navigation links.
 - **Main Content Area:**
   - Display of a sentence prompt for the user to convert to its plural form.
   - Input field for users to enter their pluralized version of the sentence.
   - Feedback indicating whether the user's response is correct or incorrect.
-- **Footer:** Navigation links, game settings, and help options.
 
-#### Profile/Settings Screen:
-- **Header:** Project title/logo and navigation links.
-- **Main Content Area:**
-  - User profile section displaying username, avatar, and statistics (e.g., total games played, high scores).
-  - Settings options to customize game preferences, language settings, and notifications.
-- **Footer:** Links to return to the home screen, logout, and additional resources.
 
 These wireframes provide a basic visual representation of the different screens and components within the "Love Letters and Grammar" project. Actual wireframes may vary in design and complexity based on the specific requirements and design preferences of the project.
 
-To develop the "Love Letters and Grammar" project, we'll utilize a combination of technologies to ensure efficient implementation and a seamless user experience:
-
 ### 6. Technology Stack:
+
+To develop the "Love Letters and Grammar" project, we'll utilize a combination of technologies to ensure efficient implementation and a seamless user experience:
 
 1. **Python:**
    - The core programming language for implementing game logic, user interactions, and backend functionality.
@@ -245,10 +217,156 @@ To develop the "Love Letters and Grammar" project, we'll utilize a combination o
    - Lightweight web framework for building web applications in Python.
    - Can be used to create RESTful APIs for communication between the frontend and backend components.
 
-9. **Google Workspace (formerly G Suite):**
-   - Provides collaboration tools such as Google Docs, Google Drive, and Google Slides for project management, documentation, and communication.
+9. **Google Workspace :**
+   - Provides collaboration tools such as Google Drive, Google slide and Google Slides for project management, documentation, and communication.
 
-10. **Google Drive API (optional):**
-    - Allows for integration with Google Drive to store additional resources such as images, audio files, or user-generated content.
+10. **Google Drive API :**
+    - Allows for integration with Google Drive to store additional resources and user-generated content.
 
 By leveraging these technologies, we can develop a robust and scalable solution for the "Love Letters and Grammar" project, ensuring smooth gameplay, data management, and user interaction.
+
+### 8. Testing:
+
+#### 8.1 Code Validation:
+- **Code Review:** Conduct regular code reviews to ensure adherence to coding standards, best practices, and project requirements.
+- **Linting:** Tool like Code Institute Python Linter was used to analyze the Python code the syntax errors, stylistic inconsistencies, and potential bugs.
+- **Static Analysis:** Code Institute Python Linter was also used for static code analysis to identify potential issues such as code smells, complexity, and security vulnerabilities.
+
+#### 8.2 Test Cases:
+- **User Story 1: New User enter username:**
+  - Test Case: Verify that new users can enter easily their username for successfull experience.
+  - Steps:
+    1. Read welcome message.
+    2. Enter valid registration details (username or name).
+    3. Submit the username pression enter.
+    4. Verify that the user is invited to conitnue with the first step with a success message.
+  - Screenshot: ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/8557046d-656b-4569-9a27-c496cbccebbf)
+
+
+- **User Story 2: Hangman Game Play:**
+  - Test Case: Ensure that players can play the Hangman game correctly.
+  - Steps:
+    1. Select the Hangman game from the main menu.
+    2. Choose a category and start the game.
+    3. Guess letters to uncover the hidden word.
+    4. Verify that the game progresses correctly with each guess.
+       
+  - Screenshots:
+    ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/ad6906ba-38d5-4aeb-a7cf-f37203d41bb8)
+
+    ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/553f3947-6d9a-4b5c-81fb-52b5f0732d16)
+
+    ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/427f6567-1945-4e52-a264-15512764a5a0)
+
+    ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/26530bbd-b97b-44c3-ac41-6bd4f9e7174e)
+
+#### 8.3 Fixed Bugs:
+- **Bug ID: #001**
+  - Description: Hangman game crashes when special characters are entered as guesses.
+  - Fix: Implemented input validation to prevent users from entering non-alphabetic characters.
+
+- **Bug ID: #002**
+  - Description: Profile picture upload fails intermittently.
+  - Fix: Improved error handling and retry mechanism for profile picture uploads.
+
+#### 8.4 Supported Screens and Browsers:
+- **Supported Screens:**
+  - Desktop: Ensure compatibility with common desktop resolutions (e.g., 1920x1080, 1366x768).
+  - Mobile: Optimize layout and responsiveness for various mobile devices (e.g., smartphones, tablets).
+
+- **Supported Browsers:**
+  - Chrome
+  - Firefox
+  - Safari
+  - Edge
+  - Internet Explorer (if necessary)
+
+- **Browser Compatibility Testing:**
+  - Perform cross-browser testing to verify consistent behavior and appearance across different web browsers.
+  - Address any compatibility issues or rendering discrepancies encountered during testing.
+
+By following these testing practices, developers can ensure the reliability, functionality, and usability of the "Love Letters and Grammar" project across different user scenarios, devices, and environments.
+
+### 9. Deployment:
+
+#### 9.1 Via Gitpod:
+- **Step 1: Setup Gitpod Configuration:**
+  - Create a `.gitpod.yml` file in the root directory of the project.
+  - Define the necessary configuration for Gitpod, including environment setup, dependencies installation, and startup commands.
+
+- **Step 2: Start Gitpod Workspace:**
+  - Commit and push the project code to the GitHub repository.
+  - Open the GitHub repository in Gitpod by prefixing the repository URL with `gitpod.io/#`.
+  - Gitpod will automatically initialize a workspace based on the configuration defined in `.gitpod.yml`.
+
+- **Step 3: Development and Testing:**
+  - Use the Gitpod workspace for development, testing, and debugging.
+  - Install any additional dependencies or packages required for development.
+
+- **Step 4: Deployment:**
+  - Once development and testing are complete, deploy the application using Gitpod's built-in deployment options or by pushing changes to a production server.
+
+#### 9.2 Via GitHub Pages:
+- **Step 1: Prepare Project for GitHub Pages:**
+  - Ensure that the project is structured appropriately for deployment with GitHub Pages.
+  - Create a `docs` directory in the project root and move the necessary files (e.g., HTML, CSS, JavaScript) into this directory.
+
+- **Step 2: Enable GitHub Pages in Repository Settings:**
+  - Navigate to the repository settings on GitHub.
+  - Under the "GitHub Pages" section, select the `docs` folder as the source for GitHub Pages deployment.
+
+- **Step 3: Deployment:**
+  - Commit and push the changes to the GitHub repository.
+  - GitHub Pages will automatically deploy the project using the files in the `docs` directory.
+
+Link of the deployment page: https://github.com/arcadejk/love_letters_and_grammar.git 
+
+#### 9.3 Via Heroku:
+- **Step 1: Create Heroku Account:**
+  - Sign up for a free Heroku account if you don't already have one.
+
+- **Step 2: Prepare Project for Heroku:**
+  - Ensure that the project is configured to work with Heroku.
+  - Create a `Procfile` in the project root directory specifying the commands to run the application.
+
+- **Step 3: Install Heroku CLI:**
+  - Install the Heroku Command Line Interface (CLI) on your local machine.
+
+- **Step 4: Deploy to Heroku:**
+  - Log in to Heroku CLI using the command `heroku login`.
+  - Navigate to the project directory and initialize a Git repository if not already done.
+  - Add a Heroku remote to the Git repository using the command `heroku git:remote -a <app-name>`.
+  - Commit any changes and push the code to the Heroku remote using `git push heroku master`.
+
+- **Step 5: Configure Dynos and Add-ons:**
+  - Configure dynos and any necessary add-ons for the Heroku application through the Heroku dashboard or CLI.
+
+- **Step 6: Monitor Deployment:**
+  - Monitor the deployment process and troubleshoot any errors or issues that arise.
+  - Verify that the application is running correctly on the Heroku platform.
+
+Link to acess the application: 
+https://love-letters-and-grammar-5f96e9223b1d.herokuapp.com/
+
+By following these deployment steps, developers can deploy the "Love Letters and Grammar" project to various platforms, making it accessible to users and ensuring smooth operation in production environments.
+
+### 10. Credits and Acknowledgments
+
+The development of the "Love Letters and Grammar" project was made possible through the valuable contributions and resources provided by various individuals and organizations. Below are the credits and acknowledgments for the resources used in the creation of this project. 
+
+### Credits:
+
+- **KITE: How to build HANGMAN with Python in 10 MINUTES**
+  - Tutorial Video: [Watch Here](https://www.youtube.com/watch?v=m4nEnsavl6w&t=53s)
+
+- **PORTFOLIO COURSES: Jumbled Word Game | Python Example**
+  - Tutorial Video: [Watch Here](https://www.youtube.com/watch?v=O2xrxU0YB6s)
+
+- **LUCIDCHART**
+  - Diagramming and Visualization Tool: [Visit Here](https://www.lucidchart.com/)
+
+- **Code Institute's Loves sandwiches project**
+  - Project by Code Institute
+  - ChatGPT used to write descriptions
+
+These resources played a significant role in guiding and supporting the development process of the "Love Letters and Grammar" project, enriching its functionality and enhancing the overall user experience.
