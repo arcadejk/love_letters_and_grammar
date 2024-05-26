@@ -14,13 +14,15 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_letters and grammar')
 
+
 def get_username():
     """
-    User may enter their username. 
+    User may enter their username.
     the function will return the entered username.
     """
     username = input("Please enter your username: \n")
     return username
+
 
 def choose_to_continue(user_name):
     """
@@ -28,7 +30,7 @@ def choose_to_continue(user_name):
     if he wants or not to start the game.
     """
     while True:
-        choice = input("Would you like your username to be considered? (y/n): \n").lower()
+        choice = input("Your username should be considered? (y/n): \n").lower()
         if choice == 'y':
             print("\n")
             print(f"Let's start, {user_name}!")
@@ -38,6 +40,7 @@ def choose_to_continue(user_name):
             sys.exit()
         else:
             print("Invalid choice. Please enter 'y' for yes or 'n' for no.")
+
 
 def choose_category():
     """
@@ -60,17 +63,17 @@ def choose_category():
             elif choice == '3':
                 words_list = categories.col_values(3)[1:]
                 category_name = "Hobbies"
-            
+
             return category_name, random.choice(words_list)
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
+
 
 def play(word):
     """
     Contains the setting to start the Hangman game.
     """
     print("You will have 6 tries before loose.")
-    print("When you loose the first step, you won't be allow to continue the game.")
     print("You should then start over, from the beginning ! :-D")
 
     word_construction = "_" * len(word)
@@ -95,7 +98,8 @@ def play(word):
                 print("Good job,", guess, "is in the word!")
                 guessed_letters.append(guess)
                 word_as_list = list(word_construction)
-                indices = [i for i, letter in enumerate(word) if letter == guess]
+                indices = [i for i, letter in enumerate(word)
+                           if letter == guess]
                 for index in indices:
                     word_as_list[index] = guess
                 word_construction = "".join(word_as_list)
@@ -121,7 +125,8 @@ def play(word):
         print("You won the first step of this challenge!")
         print("\n")
     else:
-        print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
+        print("Sorry, you ran out of tries.")
+        print("The word was " + word + ". Maybe next time!")
 
 
 def display_hangman(tries):
@@ -145,7 +150,7 @@ def display_hangman(tries):
                    |      O
                    |     \\|/
                    |      |
-                   |     / 
+                   |     /
                    -
                 """,
                 # head, torso, and both arms
@@ -155,7 +160,7 @@ def display_hangman(tries):
                    |      O
                    |     \\|/
                    |      |
-                   |      
+                   |
                    -
                 """,
                 # head, torso, and one arm
@@ -165,7 +170,7 @@ def display_hangman(tries):
                    |      O
                    |     \\|
                    |      |
-                   |     
+                   |
                    -
                 """,
                 # head and torso
@@ -175,7 +180,7 @@ def display_hangman(tries):
                    |      O
                    |      |
                    |      |
-                   |     
+                   |
                    -
                 """,
                 # head
@@ -183,35 +188,38 @@ def display_hangman(tries):
                    --------
                    |      |
                    |      O
-                   |    
-                   |      
-                   |     
+                   |
+                   |
+                   |
                    -
                 """,
                 # initial empty state
                 """
                    --------
                    |      |
-                   |      
-                   |    
-                   |      
-                   |     
+                   |
+                   |
+                   |
+                   |
                    -
                 """
     ]
     return stages[tries]
 
+
 def scrambled_sentence():
     """
-    This function allows the user to select a category, 
+    This function allows the user to select a category,
     retrieves a random sentence from the selected category,
-    scrambles the words in that sentence, and then asks the user to unscramble it.
+    scrambles the words in that sentence,
+    and then asks the user to unscramble it.
     """
     sentences = SHEET.worksheet("sentences")
     while True:
         print("\n")
         print("Do you want to change the category?")
-        choice = input("Choose one more time - 1: Politics, 2: Society, 3: Hobbies: \n")
+        print("Choose one more time...")
+        choice = input("1: Politics, 2: Society, 3: Hobbies: \n")
         if choice in ['1', '2', '3']:
             if choice == '1':
                 words_list = sentences.col_values(1)[1:]
@@ -219,14 +227,14 @@ def scrambled_sentence():
                 words_list = sentences.col_values(2)[1:]
             elif choice == '3':
                 words_list = sentences.col_values(3)[1:]
-            
+
             chosen_sentence = random.choice(words_list)
             sentence_elements = chosen_sentence.split()
             random.shuffle(sentence_elements)
             jumbled_sentence = " ".join(sentence_elements)
-            
+
             print("Unscramble this sentence: " + jumbled_sentence)
-            
+
             while True:
                 guess = input("Guess: ")
                 if guess.lower().strip() != chosen_sentence.lower():
@@ -234,18 +242,19 @@ def scrambled_sentence():
                 else:
                     print("\n")
                     print("Congratulations! You rocked it again !!!")
-                    break                    
+                    break
             return chosen_sentence
             print("...is the correct sentence.")
             break
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
 
+
 def convert_to_plural(chosen_sentence):
     """
-    This function prompts the user to convert 
+    This function prompts the user to convert
     a given sentence to its plural form.
-    It then records the user's answer along 
+    It then records the user's answer along
     with their username in a Google Sheets worksheet named 'answers'.
     """
     print("\n")
@@ -255,18 +264,20 @@ def convert_to_plural(chosen_sentence):
     print(f"The sentence to take into consideration is: ")
     print(chosen_sentence)
     user_plural = input("Enter the plural form of the sentence: \n")
-    
+
     print("\n")
     print("Your answer has been recorded. Thank you!")
     print("The update answer is:")
     return user_plural
+
 
 def update_worksheet(user_name, selected_category, user_plural):
     """
     This function will update each column of the worksheet.
     """
     answers_worksheet = SHEET.worksheet('answers')
-    answers_worksheet.append_row([user_name, selected_category, user_plural]) 
+    answers_worksheet.append_row([user_name, selected_category, user_plural])
+
 
 def main():
     """
@@ -284,19 +295,23 @@ def main():
 
     word = random_word.upper()
     play(word)
-    while input("Play Again? (Y/N) Press 'N' to continue with the next challenge. \n").upper() == "Y":
+    print("Play Again? (Y/N)")
+    print("Press 'N' to continue with the next challenge.")
+    while input(". \n").upper() == "Y":
         selected_category, random_word = choose_category()
         play(random_word.upper())
-    
+
     random_sentence = scrambled_sentence()
     print(random_sentence)
 
     sentence_plural = convert_to_plural(random_sentence)
     print(sentence_plural)
 
-    update_worksheet(user_name, selected_category, sentence_plural) 
+    update_worksheet(user_name, selected_category, sentence_plural)
+
 
 print("Welcome to the letters and Grammar game!")
 print("\n")
+
 if __name__ == "__main__":
     main()
