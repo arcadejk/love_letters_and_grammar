@@ -232,9 +232,11 @@ def scrambled_sentence():
                 if guess.lower().strip() != chosen_sentence.lower():
                     print("Incorrect, try again!")
                 else:
+                    print("\n")
                     print("Congratulations! You rocked it again !!!")
                     break                    
             return chosen_sentence
+            print("...is the correct sentence.")
             break
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
@@ -246,13 +248,15 @@ def convert_to_plural(chosen_sentence):
     It then records the user's answer along 
     with their username in a Google Sheets worksheet named 'answers'.
     """
+    print("\n")
     print("For the last step of this game, you will...")
     print(f"Convert the sentence you've just unscrambled to the plural.")
-    print(f"The sentence to take into consideration is: {chosen_sentence}")
+    print("\n")
+    print(f"The sentence to take into consideration is: ")
     print(chosen_sentence)
     user_plural = input("Enter the plural form of the sentence: \n")
-    return user_plural
-
+    
+    print("\n")
     print("Your response has been recorded. Thank you!")
 
 def update_worksheet(user_name, selected_category, user_plural):
