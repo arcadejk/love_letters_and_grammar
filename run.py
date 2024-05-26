@@ -28,8 +28,9 @@ def choose_to_continue(user_name):
     if he wants or not to start the game.
     """
     while True:
-        choice = input("Would you like your username to be considered? (y/n): ").lower()
+        choice = input("Would you like your username to be considered? (y/n): \n").lower()
         if choice == 'y':
+            print("\n")
             print(f"Let's start, {user_name}!")
             return True
         elif choice == 'n':
@@ -116,7 +117,9 @@ def play(word):
         print(word_construction)
         print("\n")
     if guessed:
-        print("Congratulations, you guessed the word! You win!")
+        print("Congratulations, you guessed the word!")
+        print("You won the first step of this challenge!")
+        print("\n")
     else:
         print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
 
@@ -206,6 +209,7 @@ def scrambled_sentence():
     """
     sentences = SHEET.worksheet("sentences")
     while True:
+        print("\n")
         print("Do you want to change the category?")
         choice = input("Choose one more time - 1: Politics, 2: Society, 3: Hobbies: \n")
         if choice in ['1', '2', '3']:
@@ -263,9 +267,10 @@ def main():
     Run all program functions
     """
     user_name = get_username()
-    print(f"Hello, {user_name}! Welcome to this challenge.")
+    print(f"Hello, {user_name}! Welcome to this challenge!")
     print("You are about to start a game of 3 steps.")
     print("Soon you will start the Hangman game to guess the right word.")
+    print("\n")
 
     if choose_to_continue(user_name):
         selected_category, random_word = choose_category()
@@ -273,7 +278,7 @@ def main():
 
     word = random_word.upper()
     play(word)
-    while input("Play Again? (Y/N) Press 'N' to continue with the next challenge.").upper() == "Y":
+    while input("Play Again? (Y/N) Press 'N' to continue with the next challenge. \n").upper() == "Y":
         selected_category, random_word = choose_category()
         play(random_word.upper())
     
@@ -286,5 +291,6 @@ def main():
     update_worksheet(user_name, selected_category, sentence_plural) 
 
 print("Welcome to the letters and Grammar game!")
+print("\n")
 if __name__ == "__main__":
     main()
