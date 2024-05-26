@@ -257,7 +257,8 @@ def convert_to_plural(chosen_sentence):
     user_plural = input("Enter the plural form of the sentence: \n")
     
     print("\n")
-    print("Your response has been recorded. Thank you!")
+    print("Your answer has been recorded. Thank you!")
+    print("The update answer is:")
     return user_plural
 
 def update_worksheet(user_name, selected_category, user_plural):
