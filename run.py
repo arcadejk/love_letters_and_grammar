@@ -230,6 +230,7 @@ def scrambled_sentence():
                 else:
                     print("Congratulations! You rocked it again !!!")
                     break                    
+            return chosen_sentence
             break
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
@@ -242,7 +243,9 @@ def convert_to_plural(chosen_sentence):
     with their username in a Google Sheets worksheet named 'answers'.
     """
     print("For the last step of this game, you will...")
-    print(f"Convert this sentence to plural: {chosen_sentence}")
+    print(f"Convert the sentence you've just unscrambled to the plural.")
+    print(f"The sentence to take into consideration is: {chosen_sentence}")
+    print(chosen_sentence)
     user_plural = input("Enter the plural form of the sentence: \n")
     return user_plural
 
