@@ -19,9 +19,24 @@ def get_username():
     """
     User may enter their username.
     the function will return the entered username.
+    Check if the username meets the length requirement,
+    and Check for additional rules.
     """
-    username = input("Please enter your username: \n")
-    return username
+    while True:
+        username = input("Please enter your username: \n")
+        if len(username) < 5 or len(username) > 15:
+            print("Username must be between 5 and 15 characters long.")
+            continue
+    
+        if not username.isalnum():
+            print("Username can only contain letters and numbers.")
+            continue
+        
+        if username[0].isdigit():
+            print("Username should not start with a number.")
+            continue
+
+        return username
 
 
 def choose_to_continue(user_name):
@@ -295,11 +310,18 @@ def main():
 
     word = random_word.upper()
     play(word)
-    print("Play Again? (Y/N)")
-    print("Press 'N' to continue with the next challenge.")
-    while input(". \n").upper() == "Y":
-        selected_category, random_word = choose_category()
-        play(random_word.upper())
+    print("Play Again the Hangame again? (Y/N)")
+    print("Press 'N' to continue")
+    while True:
+        response = input("Do you want to play again? (Y/N): ").upper()
+        if response == "N":
+            print("Moving to the next challenge.")
+            break
+        elif response == "Y":
+            selected_category, random_word = choose_category()
+            play(random_word.upper())
+        else:
+            print("Invalid input. Please enter 'Y' to play again or 'N' to continue.")
 
     random_sentence = scrambled_sentence()
     print(random_sentence)
