@@ -271,23 +271,6 @@ By leveraging these technologies, we can develop a robust and scalable solution 
   - Description: Hangman game crashes when special characters are entered as guesses.
   - Fix: Implemented input validation to prevent users from entering non-alphabetic characters.
 
-    
-#### 8.4 Supported Screens and Browsers:
-- **Supported Screens:**
-  - Desktop: Ensure compatibility with common desktop resolutions (e.g., 1920x1080, 1366x768).
-  - Mobile: Optimize layout and responsiveness for various mobile devices (e.g., smartphones, tablets).
-
-- **Supported Browsers:**
-  - Chrome
-  - Firefox
-  - Safari
-  - Edge
-  - Internet Explorer (if necessary)
-
-- **Browser Compatibility Testing:**
-  - Perform cross-browser testing to verify consistent behavior and appearance across different web browsers.
-  - Address any compatibility issues or rendering discrepancies encountered during testing.
-
 By following these testing practices, developers can ensure the reliability, functionality, and usability of the "Love Letters and Grammar" project across different user scenarios, devices, and environments.
 
 ### 9. Deployment:
@@ -309,22 +292,7 @@ By following these testing practices, developers can ensure the reliability, fun
 - **Step 4: Deployment:**
   - Once development and testing are complete, deploy the application using Gitpod's built-in deployment options or by pushing changes to a production server.
 
-#### 9.2 Via GitHub Pages:
-- **Step 1: Prepare Project for GitHub Pages:**
-  - Ensure that the project is structured appropriately for deployment with GitHub Pages.
-  - Create a `docs` directory in the project root and move the necessary files (e.g., HTML, CSS, JavaScript) into this directory.
-
-- **Step 2: Enable GitHub Pages in Repository Settings:**
-  - Navigate to the repository settings on GitHub.
-  - Under the "GitHub Pages" section, select the `docs` folder as the source for GitHub Pages deployment.
-
-- **Step 3: Deployment:**
-  - Commit and push the changes to the GitHub repository.
-  - GitHub Pages will automatically deploy the project using the files in the `docs` directory.
-
-Link of the deployment page: https://github.com/arcadejk/love_letters_and_grammar.git 
-
-#### 9.3 Via Heroku:
+#### 9.2 Via Heroku:
 - **Step 1: Create Heroku Account:**
   - Sign up for a free Heroku account if you don't already have one.
 
