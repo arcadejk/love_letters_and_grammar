@@ -14,6 +14,24 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_letters and grammar')
 
+def how_to_play():
+    """
+    Provides instructions on how to play the game.
+    """
+    print("\nWelcome to the Love Letters and Grammar game!")
+    print("\n")
+    print("How to Play:")
+    print("1. You will be prompted to enter your username.")
+    print("2. Choose whether to start the game or not.")
+    print("3. Select a category: Politics, Society, or Hobbies.")
+    print("4. In the Hangman game, guess the word related to the selected category.")
+    print("5. You have 6 tries in Hangman. If you fail, you can choose to play again.")
+    print("6. Unscramble a sentence related to the selected category.")
+    print("7. You have 3 tries to unscramble the sentence.")
+    print("8. Convert the unscrambled sentence into its plural form.")
+    print("9. Your answers will be recorded.")
+    print("\n")
+
 
 def get_username():
     """
@@ -45,7 +63,7 @@ def choose_to_continue(user_name):
     if he wants or not to start the game.
     """
     while True:
-        choice = input("Your username should be considered? (y/n): \n").lower()
+        choice = input("Would you like to play the game? (y/n): \n").lower()
         if choice == 'y':
             print("\n")
             print(f"Let's start, {user_name}!")
@@ -222,17 +240,16 @@ def display_hangman(tries):
     return stages[tries]
 
 
-def scrambled_sentence():
+def scrambled_sentence(max_tries=3):
     """
     This function allows the user to select a category,
     retrieves a random sentence from the selected category,
     scrambles the words in that sentence,
-    and then asks the user to unscramble it.
+    and then asks the user to unscramble it with a maximum number of tries.
     """
     sentences = SHEET.worksheet("sentences")
     while True:
-        print("\n")
-        print("Do you want to change the category?")
+        print("\nDo you want to change the category?")
         print("Choose one more time...")
         choice = input("1: Politics, 2: Society, 3: Hobbies: \n")
         if choice in ['1', '2', '3']:
@@ -250,19 +267,25 @@ def scrambled_sentence():
 
             print("Unscramble this sentence: " + jumbled_sentence)
 
-            while True:
+            for attempt in range(max_tries):
                 guess = input("Guess: ")
-                if guess.lower().strip() != chosen_sentence.lower():
-                    print("Incorrect, try again!")
+                if guess.lower().strip() == chosen_sentence.lower():
+                    print("\nCongratulations! You rocked it again!")
+                    return chosen_sentence
                 else:
-                    print("\n")
-                    print("Congratulations! You rocked it again !!!")
-                    break
-            return chosen_sentence
-            print("...is the correct sentence.")
+                    remaining_tries = max_tries - attempt - 1
+                    if remaining_tries > 0:
+                        print(f"Incorrect! You have {remaining_tries} tries left.")
+                    else:
+                        print("Sorry, you've used all your tries.")
+                        break
+
+            print("\n")
+            print("The correct sentence was: ", chosen_sentence)
             break
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
+
 
 
 def convert_to_plural(chosen_sentence):
@@ -298,11 +321,14 @@ def main():
     """
     Run all program functions
     """
+
+    how_to_play()
+
     user_name = get_username()
     print(f"Hello, {user_name}! Welcome to this challenge!")
     print("You are about to start a game of 3 steps.")
-    print("Soon you will start the Hangman game to guess the right word.")
-    print("\n")
+    print("Soon you will begin with the Hangman game")
+    print("to guess the right word.\n")
 
     if choose_to_continue(user_name):
         selected_category, random_word = choose_category()
@@ -310,20 +336,17 @@ def main():
 
     word = random_word.upper()
     play(word)
-    print("Play Again the Hangame again? (Y/N)")
-    print("Press 'N' to continue")
     while True:
-        response = input("Do you want to play again? (Y/N): ").upper()
+        response = input("Would you like to continue? (Y/N):").upper()
         if response == "N":
-            print("Moving to the next challenge.")
-            break
+            sys.exit()
         elif response == "Y":
-            selected_category, random_word = choose_category()
-            play(random_word.upper())
+            print("Moving to the next challenge.\n")
+            break
         else:
             print("Invalid input. Please enter 'Y' to play again or 'N' to continue.")
 
-    random_sentence = scrambled_sentence()
+    random_sentence = scrambled_sentence(max_tries=3)
     print(random_sentence)
 
     sentence_plural = convert_to_plural(random_sentence)
@@ -331,9 +354,6 @@ def main():
 
     update_worksheet(user_name, selected_category, sentence_plural)
 
-
-print("Welcome to the letters and Grammar game!")
-print("\n")
 
 if __name__ == "__main__":
     main()
