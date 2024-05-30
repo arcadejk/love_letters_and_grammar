@@ -28,8 +28,9 @@ def how_to_play():
     print("5. You have 6 tries in Hangman. If you fail, you can choose to play again.")
     print("6. Unscramble a sentence related to the selected category.")
     print("7. You have 3 tries to unscramble the sentence.")
-    print("8. Convert the unscrambled sentence into its plural form.")
-    print("9. Your answers will be recorded.")
+    print("8. Remember to put a fullstop at the end of your sentence.")
+    print("9. Convert the unscrambled sentence into its plural form.")
+    print("10. Your answers will be recorded.")
     print("\n")
 
 
