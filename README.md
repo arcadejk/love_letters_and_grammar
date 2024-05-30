@@ -251,7 +251,7 @@ By leveraging these technologies, we can develop a robust and scalable solution 
 - **User Story 2: Hangman Game Play:**
   - Test Case: Ensure that players can play the Hangman game correctly.
   - Steps:
-    1. Select the Hangman game from the main menu.
+    1. Select to the Hangman game by accepting to continue.
     2. Choose a category and start the game.
     3. Guess letters to uncover the hidden word.
     4. Verify that the game progresses correctly with each guess.
@@ -265,6 +265,34 @@ By leveraging these technologies, we can develop a robust and scalable solution 
 
     ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/26530bbd-b97b-44c3-ac41-6bd4f9e7174e)
     
+- **User Story 3: Unscramble Game Play:**
+  - Test Case: Ensure that players can play the Unscramble Game correctly.
+  - Steps:
+    1. Select the Unscramble Game by accepting to continue.
+    2. Choose a category and start the game.
+    3. Guess the right order of the words.
+    4. Verify that the game progresses correctly with each guess.
+
+- Screenshots:
+   ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/a02905e2-d818-4690-9905-873f9423887c)
+  
+  ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/d59ccbf3-98cc-4686-8364-2e18757a1a62)
+
+  ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/e7cc03d1-d8ec-4d6b-8647-5248f5dacf61)
+
+- **User Story 4: Enter the plural of the chosen sentence:**
+  - Test Case: Ensure that players can enter the plural of the given sentences correctly.
+  - Steps:
+    1. The application return the sentence.
+    2. User type in the determined space.
+    3. Whatever the user enters will be recorded.
+    4. The user's answer is sent to the same spreadsheet used and introduced at the beguinning.
+
+- Screenshots:
+   ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/417dbe52-6e40-4b74-b2d0-62eda51ff138)
+
+  ![image](https://github.com/arcadejk/love_letters_and_grammar/assets/157130011/f1b9f85c-95a4-4945-bef4-2e333c05242f)
+
 
 #### 8.3 Fixed Bugs:
 - **Bug ID: #001**
