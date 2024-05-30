@@ -14,6 +14,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_letters and grammar')
 
+
 def how_to_play():
     """
     Provides instructions on how to play the game.
@@ -24,8 +25,10 @@ def how_to_play():
     print("1. You will be prompted to enter your username.")
     print("2. Choose whether to start the game or not.")
     print("3. Select a category: Politics, Society, or Hobbies.")
-    print("4. In the Hangman game, guess the word related to the selected category.")
-    print("5. You have 6 tries in Hangman. If you fail, you can choose to play again.")
+    print("4. In the Hangman game, guess the word")
+    print("related to the selected category.")
+    print("5. You have 6 tries in Hangman.")
+    print(" If you fail, you can choose to play again.")
     print("6. Unscramble a sentence related to the selected category.")
     print("7. You have 3 tries to unscramble the sentence.")
     print("8. Remember to put a fullstop at the end of your sentence.")
@@ -46,11 +49,11 @@ def get_username():
         if len(username) < 5 or len(username) > 15:
             print("Username must be between 5 and 15 characters long.")
             continue
-    
+
         if not username.isalnum():
             print("Username can only contain letters and numbers.")
             continue
-        
+
         if username[0].isdigit():
             print("Username should not start with a number.")
             continue
@@ -276,7 +279,8 @@ def scrambled_sentence(max_tries=3):
                 else:
                     remaining_tries = max_tries - attempt - 1
                     if remaining_tries > 0:
-                        print(f"Incorrect! You have {remaining_tries} tries left.")
+                        print("Incorrect!")
+                        print(f"You have {remaining_tries} tries left.")
                     else:
                         print("Sorry, you've used all your tries.")
                         break
@@ -286,7 +290,6 @@ def scrambled_sentence(max_tries=3):
             break
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
-
 
 
 def convert_to_plural(chosen_sentence):
@@ -345,7 +348,8 @@ def main():
             print("Moving to the next challenge.\n")
             break
         else:
-            print("Invalid input. Please enter 'Y' to play again or 'N' to continue.")
+            print("Invalid input")
+            print("Please enter 'Y' to play again or 'N' to continue.")
 
     random_sentence = scrambled_sentence(max_tries=3)
     print(random_sentence)
@@ -358,3 +362,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
