@@ -287,7 +287,7 @@ def scrambled_sentence(max_tries=3):
 
             print("\n")
             print("The correct sentence was: ", chosen_sentence)
-            break
+            return chosen_sentence
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
 
@@ -303,6 +303,11 @@ def convert_to_plural(chosen_sentence):
     print("For the last step of this game, you will...")
     print(f"Convert the sentence you've just unscrambled to the plural.")
     print("\n")
+
+    print("Attention: Send your best answer!")
+    print("There is no direct feedback for this step.")
+    print("\n")
+
     print(f"The sentence to take into consideration is: ")
     print(chosen_sentence)
     user_plural = input("Enter the plural form of the sentence: \n")
